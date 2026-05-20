@@ -1,96 +1,65 @@
 # GigFlow – Smart Leads Dashboard
 
-> Full-stack MERN internship assignment for ServiceHive  
-> Built with React + TypeScript · Node.js + Express + TypeScript · MongoDB · Docker
+A full-stack MERN application for managing sales leads with role-based access control.
+
+**Stack:** React + TypeScript · Node.js + Express + TypeScript · MongoDB · Docker
 
 ---
 
 ## Quick Start (Docker)
 
 ```bash
-# 1. Clone the repo
-git clone <repo-url>
+git clone https://github.com/Dipro-cyber/gigflow.git
 cd gigflow
-
-# 2. Copy and fill in environment variables
-cp .env.example .env
-
-# 3. Spin up everything with one command
+cp .env.example .env   # fill in JWT_SECRET
 docker-compose up --build
 ```
 
-- Frontend: http://localhost:3000  
-- Backend API: http://localhost:5000  
-- MongoDB: localhost:27017
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:5000
 
 ---
 
-## Local Development (without Docker)
+## Local Development
 
 ### Backend
 ```bash
 cd server
-cp .env.example .env   # fill in values
+cp .env.example .env
 npm install
-npm run dev            # ts-node-dev with hot reload
+npm run dev
 ```
 
 ### Frontend
 ```bash
 cd client
-cp .env.example .env   # fill in VITE_API_URL
+cp .env.example .env
 npm install
-npm run dev            # Vite dev server on :3000
+npm run dev
 ```
 
 ---
 
 ## Features
 
-| Feature | Status |
-|---------|--------|
-| JWT Authentication (register + login) | ✅ |
-| Role-Based Access Control (admin / sales_user) | ✅ |
-| Leads CRUD | ✅ |
-| Advanced filtering (status, source, search, sort) | ✅ |
-| Backend pagination (10/page) | ✅ |
-| Debounced search (300ms custom hook) | ✅ |
-| CSV export (filtered results) | ✅ |
-| Responsive UI with loading/empty/error states | ✅ |
-| Docker (single `docker-compose up`) | ✅ |
-| Dark mode | ✅ (bonus) |
+- JWT authentication with role-based access (admin / sales_user)
+- Leads CRUD with ownership enforcement
+- Advanced filtering by status, source, search term, sort order
+- Backend pagination (10 records/page)
+- Debounced search (300ms custom hook)
+- CSV export of filtered results
+- Responsive UI with loading, empty, and error states
+- Dark mode (bonus)
+- Docker — single `docker-compose up` spins everything
 
 ---
 
-## API Documentation
+## API Reference
 
-See [API.md](./API.md) for full endpoint reference.
+See [API.md](./API.md)
 
 ---
 
 ## Environment Variables
 
-See `.env.example` at the root for all required variables.
-
----
-
-## Tech Stack
-
-**Frontend:** React 18 · TypeScript · TailwindCSS · Vite · React Router v6 · Axios  
-**Backend:** Node.js · Express · TypeScript · MongoDB · Mongoose · JWT · bcryptjs  
-**DevOps:** Docker · Docker Compose · nginx (frontend serving)
-
----
-
-## Live Demo
-
-- Frontend: _TBD after deployment_  
-- Backend API: _TBD after deployment_
-
----
-
-## Submission
-
-**Email:** ritik.yadav@servicehive.tech  
-**CC:** hr.recruitment@servicehive.tech  
-**Subject:** MERN Internship Assignment Submission - Diptesh Roy
+See `.env.example` at root, `server/.env.example`, and `client/.env.example`.
