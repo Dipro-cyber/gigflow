@@ -3,20 +3,23 @@ import { Toaster } from 'react-hot-toast'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
+import LeadDetail from './pages/LeadDetail'
+import ProtectedRoute from './components/auth/ProtectedRoute'
 
-// Placeholder — will be replaced in Commit 6 with real auth guard
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
-      <Toaster position="top-right" />
+      <Toaster position="top-right" toastOptions={{ duration: 3000 }} />
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/leads/:id" element={<LeadDetail />} />
+        </Route>
+        <Route path="/" element={<Navigate to="/dashboard" replace />} />
+        <Route path="*" element={<Navigate to="/dashboard" replace />} />
       </Routes>
     </BrowserRouter>
   )
 }
-
-export default App
