@@ -8,6 +8,7 @@ import {
   createLeadValidation,
   updateLeadValidation,
 } from '../controllers/leadController'
+import { exportLeadsCSV } from '../controllers/exportController'
 import { protect, requireRole } from '../middleware/auth'
 import { validate } from '../middleware/validate'
 
@@ -15,6 +16,9 @@ const router = Router()
 
 // All lead routes require authentication
 router.use(protect)
+
+// CSV export — must be before /:id to avoid param conflict
+router.get('/export/csv', exportLeadsCSV)
 
 router.route('/')
   .get(getLeads)
