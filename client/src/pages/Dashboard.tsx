@@ -13,6 +13,7 @@ import Pagination from '../components/leads/Pagination'
 import Modal from '../components/ui/Modal'
 import LeadForm from '../components/leads/LeadForm'
 import Button from '../components/ui/Button'
+import DarkModeToggle from '../components/ui/DarkModeToggle'
 
 export default function Dashboard() {
   const navigate = useNavigate()
@@ -120,6 +121,7 @@ export default function Dashboard() {
             <span className="text-sm text-gray-600 dark:text-gray-400">
               {user?.name} <span className="ml-1 text-xs bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded-full">{user?.role}</span>
             </span>
+            <DarkModeToggle />
             <Button variant="ghost" size="sm" onClick={handleLogout}>Logout</Button>
           </div>
         </div>
