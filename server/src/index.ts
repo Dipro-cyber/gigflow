@@ -6,6 +6,7 @@ import cors from 'cors'
 import morgan from 'morgan'
 import connectDB from './utils/db'
 import authRoutes from './routes/authRoutes'
+import leadRoutes from './routes/leadRoutes'
 import { errorHandler, notFound } from './middleware/errorHandler'
 
 const app = express()
@@ -27,8 +28,7 @@ app.get('/health', (_req, res) => {
 
 // Routes
 app.use('/api/auth', authRoutes)
-// Lead routes wired in Commit 3
-// app.use('/api/leads', leadRoutes)
+app.use('/api/leads', leadRoutes)
 
 // Error handling
 app.use(notFound)
